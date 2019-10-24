@@ -1,0 +1,6 @@
+.idea/
+venv/
+scheduler/__pycache__/
+scheduler_api/__pycache__/
+scheduler/helpers/
+scheduler/migrations/__pycache__/
