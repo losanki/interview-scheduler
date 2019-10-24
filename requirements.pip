@@ -1,5 +1,5 @@
 Babel==2.4.0
-Django==1.11.1
+Django==1.11.17
 djangorestframework==3.6.3
-psycopg2==2.7.1
+psycopg2-binary
 pytz==2017.2
