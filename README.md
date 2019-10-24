@@ -21,6 +21,12 @@ If you don't already have Docker on your machine, Docker provides an [installati
 
 If you're running Windows or MacOS X, you'll need to use `docker-machine` to set up a virtual environment that your containers can run in.
 
+Make docker run file executable:
+
+```console
+foo@bar:~$ chmod +x .docker/run.sh
+```
+
 ### Setting up a Superuser
 
 Once the Docker container is up, you'll probably want to add a superuser to the application, so that you can access the
