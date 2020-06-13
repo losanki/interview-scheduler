@@ -12,15 +12,13 @@ class InterviewScheduleHandler():
 
         interview_date = self.interview_datetime.date()
         validation_result = False
-        if interview_date != None:
+        if interview_date is not None:
             print('INSIDE THE VALIDATION METHOD ' + str(interview_date))
-            validation_result = self.check_day_is_valid(interview_date) and \
-                                self.check_start_and_end_time_of_slot(interview_date) \
-                                and self.check_no_of_interviews_scheduled_in_given_slot() \
-                                and self.check_interview_conflict_overlap_with_slot(interview_date)
+            validation_result = self.check_day_is_valid(interview_date) and self.check_start_and_end_time_of_slot(
+                interview_date) and self.check_no_of_interviews_scheduled_in_given_slot() and self.check_interview_conflict_overlap_with_slot(
+                interview_date)
 
         return validation_result
-
 
     def check_day_is_valid(self, interview_date):
 
@@ -63,7 +61,6 @@ class InterviewScheduleHandler():
 
         return validation_result
 
-
     def check_no_of_interviews_scheduled_in_given_slot(self):
         """
         returns true if no. of interviews scheduled in given slot is less than max no. of spots
@@ -76,7 +73,6 @@ class InterviewScheduleHandler():
         if not validation_result:
             print("Check #3 fail. Interview slot is full!!")
         return validation_result
-
 
     def check_interview_conflict_overlap_with_slot(self, interview_date):
         """
@@ -99,7 +95,6 @@ class InterviewScheduleHandler():
                 break
         return validation_result
 
-
     def localize_time(self, interview_date, slot_time):
 
         """
@@ -109,7 +104,6 @@ class InterviewScheduleHandler():
         tz = self.interview_slot.local_tz
         return tz.localize(datetime.combine(interview_date, slot_time))
 
-
     def get_current_time(self):
         """
         returns local timezone aware datetime for current time
@@ -118,14 +112,12 @@ class InterviewScheduleHandler():
         tz = self.interview_slot.local_tz
         return datetime.now(tz)
 
-
     def get_min_limit_time(self, current_time):
         """
         returns the min time limit for start time of given slot
 
         """
         return current_time + timedelta(hours=self.interview_slot.calendar.min_hours_notice)
-
 
     def get_max_limit_time(self, current_time):
         """
